@@ -25,6 +25,8 @@ SECRET_KEY = "django-insecure-tuv!xtwr4mfq0oc9eqvmjx*t_=1s%-v_nc**%!08#g1v=+ndym
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#MAYANK: in production put name of allowed host ie:
+# "customdomain.com", "mywebsite.com", etc
 ALLOWED_HOSTS = []
 
 
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "leads"
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,7 @@ ROOT_URLCONF = "djcrm.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -72,6 +75,8 @@ WSGI_APPLICATION = "djcrm.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+AUTH_USER_MODEL = "leads.User" #MAYANK: tell django were using our own user modek
 
 DATABASES = {
     "default": {
